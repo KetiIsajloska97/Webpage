@@ -1,0 +1,382 @@
+﻿
+.carousel-control {
+    background-image: none !important;
+  }
+  
+  .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right {
+    color: silver;
+  }
+/*#prva
+{width:1365px;
+height:700px;}
+#vtora
+{width:1365px;
+height:700px;}
+#treta
+{width:1365px;
+height:700px;}
+#cetvrta
+{width:1365px;
+height:700px;}*/
+#prva
+{
+  width:100%;
+}
+#vtora
+{
+  width:100%;
+}
+#treta
+{
+  width:100%;
+}
+#cetvrta
+{
+  width:100%;
+}
+.form-control
+{height:100px;}
+body, html {
+  height: 100%;
+ 
+}
+
+#prvpar { 
+  /* The image used */
+  background-image:url("sliki/pozadina.jpg");
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: relative;
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+}
+#vtorpar {
+ background-image:url("sliki/pozadina.jpg");
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat:repeat-y;
+  background-size: cover;
+}
+#tretpar {
+  background-image:url("sliki/pozadina.jpg");
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+ background-attachment: fixed;
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
+  
+
+}
+
+/*.jumbotron {width:100%;
+left-margin:-60px;}*/
+.jumbotron
+{   
+    padding-top: 0px;
+    padding-bottom:0px;
+    background-size: cover;
+    background: contain;
+    width: 100%; /* make sure to define width to fill container */
+     /* define the height in pixels or make sure   */
+                   /* you have something in your div with height */
+                   /* so you can see your image */
+    max-width:1400px;  /* define the max width */
+ }
+#myScrollspy
+{color:rgb(200,191,231);}
+.col-sm-3>nav
+{color:rgb(200,191,231);}
+#meni{
+
+  background-color:rgb(156, 154, 154);
+  background-image:url("sliki/pozadina.jpg");
+}
+.active{
+  background-color:rgb(192, 192, 192);
+}
+.well well-lg
+{text-align:justified;}
+#p2
+{text-align:justified;}
+#myScrollspy
+{color:rgb(200,191,231);}
+#ul1{list-style-type:none;}
+/*.container
+{float:auto;
+width:1100px;}*/
+
+#h0
+{color:whitesmoke;}
+#navbar {
+  background-color:rgb(156, 154, 154); /* Black background color */
+  position: fixed; /* Make it stick/fixed */
+  top: -50px; /* Hide the navbar 50 px outside of the top view */
+  width: 100%; /* Full width */
+  transition: top 0.3s; /* Transition effect when sliding down (and up) */
+}
+/* Style the navbar links */
+#navbar a {
+  /*float: left;*/
+float:none;
+  display: inline block;
+  color: black;
+  text-align: center;
+  padding: 15px;
+  text-decoration: none;
+}
+
+.navbar-brand
+{
+  color:black;
+}
+li a
+{
+  color:white;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-image:url("sliki/pozadina.jpg");
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+ background-attachment: fixed;
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
+  padding: 0px;
+  font-family: Arial;
+}
+
+/* Center website */
+/*.main {
+  max-width: 1000px;
+  margin: auto;
+}*/
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+.row {
+  margin: 8px -16px;
+}
+
+/* Add padding BETWEEN each column (if you want) */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide columns by default */
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* Add a grey background color on mouse-over */
+.btn:hover {
+  background-color: #ddd;
+}
+
+/* Add a dark background color to the active button */
+.btn.active {
+  background-color: #666;
+   color: white;
+}
+* {box-sizing: border-box;}
+
+
+#prvskroll{
+  width: 49px;
+  height: 49px;
+  position: absolute;
+  bottom: 70px;
+  left: 85;
+  right:0;
+  margin: auto;
+  padding-top: 500px;
+  z-index: 9;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.25s ease-in-out;
+  transition: background-color 0.25s ease-in-out;
+}
+#vtorskroll
+{
+  width: 49px;
+  height: 49px;
+  position: absolute;
+  bottom: 70px;
+  left: 85;
+  right:0;
+  margin: auto;
+  padding-top: 500px;
+  z-index: 9;
+  border-radius: 50%;
+  -webkit-transition: background-color 0.25s ease-in-out;
+  transition: background-color 0.25s ease-in-out;
+}
+
+.ghost-button {
+  display: inline-block;
+  width: 250px;
+  padding: 8px;
+  color: black;
+  border:2px solid #7F8C8D ;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  background-color: #e0e0e0;
+}
+.ghost-button:hover,
+.ghost-button:active {
+  background-color:#d0d0d0;
+  color:black;
+}
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column1 {
+  flex: 20%;
+  padding: 0 4px;
+}
+
+.column1 img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+.content{
+  text-align:center;
+}
+#kolaz
+{
+  border:2px solid #7F8C8D ;
+
+
+}
+.navbar-brand-centered
+{
+  margin-left:100px;
+  /*font-family: Vladimir Script;*/
+  /*font-family:Helvetica Neue, sans-serif;*/
+  color:white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 50px;
+
+}
+.navbar-header{
+  height:60px;
+}
+.footer
+{
+    position:relative;
+    left: 0;
+    margin-left:10;
+    /*bottom: 0;*/
+    width: 100%;
+    display:block;
+    /*background-color: rgb(156, 154, 154);*/
+    color: white;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-image:url("sliki/slika.jpg");
+  }
+body
+{
+  /*background-image:url("sliki/pozadina.jpg");*/
+}
+#poslednaslika{
+position:relative;
+ margin-left: -90;
+ border:2px solid #7F8C8D;
+}
+#footer
+{
+  background-image:url("sliki/pozadina.jpg");
+  width:100%;
+  display:block;
+  color:black;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  height: 200px ;
+  border:2px solid #7F8C8D;
+  text-align:center;
+}
+#products{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+}
+.content p{
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+}
+#cetvrtpar
+{
+  background-image:url("sliki/pozadina.jpg");
+  /* Full height */
+  height: 100%; 
+
+  /* Create the parallax scrolling effect */
+ background-attachment: fixed;
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
+}
+#newarrivals
+{
+  width:100%;
+}
+#prvskrol
+{
+  float:center;
+}
+@media (min-width: 640px) { body {font-size:1rem;} } 
+@media (min-width:960px) { body {font-size:1.2rem;} } 
+@media (min-width:1100px) { body {font-size:1.5rem;} }

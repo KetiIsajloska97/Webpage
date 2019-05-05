@@ -1,0 +1,488 @@
+<html>
+<head>
+  <title>Yewelryholic</title>
+<link rel="stylesheet" href=style.css>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="true">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        window.location.hash = hash;
+      });
+    } 
+  });
+});
+</script>
+<script>
+    filterSelection("all") // Execute the function and show all columns
+function filterSelection(c) {
+var x, i;
+x = document.getElementsByClassName("column");
+if (c == "all") c = "";
+// Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+for (i = 0; i < x.length; i++) {
+w3RemoveClass(x[i], "show");
+if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+}
+}
+
+// Show filtered elements
+function w3AddClass(element, name) {
+var i, arr1, arr2;
+arr1 = element.className.split(" ");
+arr2 = name.split(" ");
+for (i = 0; i < arr2.length; i++) {
+if (arr1.indexOf(arr2[i]) == -1) {
+  element.className += " " + arr2[i];
+}
+}
+}
+
+// Hide elements that are not selected
+function w3RemoveClass(element, name) {
+var i, arr1, arr2;
+arr1 = element.className.split(" ");
+arr2 = name.split(" ");
+for (i = 0; i < arr2.length; i++) {
+while (arr1.indexOf(arr2[i]) > -1) {
+  arr1.splice(arr1.indexOf(arr2[i]), 1); 
+}
+}
+element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+btns[i].addEventListener("click", function(){
+var current = document.getElementsByClassName("active");
+current[0].className = current[0].className.replace(" active", "");
+this.className += " active";
+});
+}
+    </script>
+    <script>
+function imageZoom(imgID, resultID) {
+  var img, lens, result, cx, cy;
+  img = document.getElementById(imgID);
+  result = document.getElementById(resultID);
+  /* Create lens: */
+  lens = document.createElement("DIV");
+  lens.setAttribute("class", "img-zoom-lens");
+  /* Insert lens: */
+  img.parentElement.insertBefore(lens, img);
+  /* Calculate the ratio between result DIV and lens: */
+  cx = result.offsetWidth / lens.offsetWidth;
+  cy = result.offsetHeight / lens.offsetHeight;
+  /* Set background properties for the result DIV */
+  result.style.backgroundImage = "url('" + img.src + "')";
+  result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+  /* Execute a function when someone moves the cursor over the image, or the lens: */
+  lens.addEventListener("mousemove", moveLens);
+  img.addEventListener("mousemove", moveLens);
+  /* And also for touch screens: */
+  lens.addEventListener("touchmove", moveLens);
+  img.addEventListener("touchmove", moveLens);
+  function moveLens(e) {
+    var pos, x, y;
+    /* Prevent any other actions that may occur when moving over the image */
+    e.preventDefault();
+    /* Get the cursor's x and y positions: */
+    pos = getCursorPos(e);
+    /* Calculate the position of the lens: */
+    x = pos.x - (lens.offsetWidth / 2);
+    y = pos.y - (lens.offsetHeight / 2);
+    /* Prevent the lens from being positioned outside the image: */
+    if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+    if (x < 0) {x = 0;}
+    if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+    if (y < 0) {y = 0;}
+    /* Set the position of the lens: */
+    lens.style.left = x + "px";
+    lens.style.top = y + "px";
+    /* Display what the lens "sees": */
+    result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+  }
+  function getCursorPos(e) {
+    var a, x = 0, y = 0;
+    e = e || window.event;
+    /* Get the x and y positions of the image: */
+    a = img.getBoundingClientRect();
+    /* Calculate the cursor's x and y coordinates, relative to the image: */
+    x = e.pageX - a.left;
+    y = e.pageY - a.top;
+    /* Consider any page scrolling: */
+    x = x - window.pageXOffset;
+    y = y - window.pageYOffset;
+    return {x : x, y : y};
+  }
+}       
+    </script>
+</head>
+<body class="parallax">
+<div class="parallax" >
+<nav class="navbar-fixed-top" id="meni">
+<div class="container-fluid">
+<div class="navbar-header">
+<a class="navbar-brand navbar-brand-centered" href="index.html" style="font-size:30px"> Yewelryholic</a>
+</div>
+</div>
+</nav>
+<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="2600" data-pause="false">
+<ol class="carousel-indicators">
+<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+<li data-target="#myCarousel" data-slide-to="1"></li>
+<li data-target="#myCarousel" data-slide-to="2"></li>
+<li data-target="#myCarousel" data-slide-to="3"></li>
+</ol>
+<div class="carousel-inner" role="listbox">
+<div class="item active">
+<img id="prva" src="sliki/slika.jpg" alt="bootstrap" style="max-width: 100%;">
+<div class="carousel-caption">
+  <h3>  </h3>
+<p> </p>
+</a>
+</div>
+</div>
+<div class="item">
+<img id="vtora" src="sliki/slika1.jpg" style="max-width: 100%;">
+<div class="carousel-caption">
+</div>
+</div>
+<div class="item">
+<img id="treta" src="sliki/carousel10.jpg" style="max-width: 100%;">
+<div class="carousel-caption">
+<h3></h3>
+</div></div>
+<div class="item">
+<img id="cetvrta" src="sliki/carousel9.jpg" style="max-width: 100%;">
+</div>
+</div>
+<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+<!----<span class="glyphicon glyphicon-chevron-left"></span>-->
+<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-chevron-left" aria-hidden="true">
+<span class="sr-only">Претходна</span>
+</a>
+<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+<!----<span class="glyphicon glyphicon-chevron-right"></span>-->
+<span class="carousel-control-next-icon" aria-hidden="true"></span>
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>`
+<span class="sr-only">Следна</span>
+</a>
+</div>
+<br>     
+<br>
+<br>
+<br>
+<br>
+<br>
+	  <div id="kolaz" style="background-color:#d0d0d0;background-image:url(sliki/pozadina.jpg);width:100%;">
+      <img src="sliki/slika3.png" alt="New Arrivals" id="newarrivals" onmouseover="this.src='sliki/slika3.png';" onmouseout="this.src='sliki/slika3.png';" style="max-width: 100%;">                 
+      <a class="ct-btn-scroll ct-js-btn-scroll" href="#kolaz" id="vtorskroll"><img alt="Arrow Down Icon" src="https://www.solodev.com/assets/anchor/arrow-down.png" style="max-width: 100%;"></a>
+    </div>
+  <!----</div>-->
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="parallax">
+
+<div class="container id=j0" >
+<div class="jumbotron"  >
+    <h2 id = "products" style="color:#909090">Collections</h2>
+
+    <div class="row"> 
+        <div class="column1">
+          <img src="sliki/collection1.jpg" style="max-width: 100%;">
+        </div>
+        <div class="column1">
+          <img src="sliki/collection2.png" style="max-width: 100%;">
+        </div> 
+        <div class="column1">
+          <img src="sliki/collection3final.jpg" style="max-width: 100%;">
+        </div>
+        <div class="column1">
+          <img src="sliki/collection4.jpg" style="max-width: 100%;">
+        </div>
+      </div>
+    <div id="myBtnContainer">
+        <!--<button class="btn active" onclick="filterSelection('all')" id = "kopceeden"> Show all</button>-->
+        
+        <button class="ghost-button" onclick="filterSelection('Bracelets')" style="max-width: 100%;"> Bracelets</button>
+        <button class="ghost-button" onclick="filterSelection('Necklaces')" style="max-width: 100%;"> Necklaces</button>
+        <button class="ghost-button" onclick="filterSelection('Rings')" style="max-width: 100%;"> Rings</button>
+        <button class="ghost-button" onclick="filterSelection('all')" id = "kopceeden" style="max-width: 100%;"> Show all</button>
+      </div>
+      
+      <div class="row">
+          <div class="column Bracelets">
+            <div class="content">
+                <!----<div class="img-zoom-container">-->
+              <img src="sliki/bracelet1unzoom.jpg" alt="Bracelets" onmouseover="this.src='sliki/bracelet1zoom.jpg';" onmouseout="this.src='sliki/bracelet1unzoom.jpg';"style="max-width: 100%;">
+              <h5> Rose Bracelet with lightgreen Stone</h4>
+              <p><del style="color:silver"><small>€ 16,50  </small></del>   € 11,55</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+              <!----<div id="myresult" class="img-zoom-result"></div>
+              </div>-->
+            <!----</div>-->
+          </div>
+        </div>
+          <div class="column Bracelets">
+            <div class="content">
+                <img src="sliki/bracelet2unzoom.jpg" alt="Bracelets" style="max-width: 100%;" onmouseover="this.src='sliki/bracelet2zoom.jpg';" onmouseout="this.src='sliki/bracelet2unzoom.jpg';">
+              <h5>Bracelet with lightgreen Stone</h4>
+              <p><del style="color:silver"><small>€ 16,50  </small></del>   € 11,55</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Bracelets">
+            <div class="content">
+                <img src="sliki/bracelet3unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/bracelet3zoom.jpg';" onmouseout="this.src='sliki/bracelet3unzoom.jpg';">
+              <h5>Bracelet with white Zirconias</h4>
+              <p><del style="color:silver"><small>€ 16,50  </small></del>   € 11,55</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Bracelets">
+            <div class="content">
+                <img src="sliki/bracelet4unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/bracelet4zoom.jpg';" onmouseout="this.src='sliki/bracelet4unzoom.jpg';">
+              <h5>Rose Bracelet with white Zirconias</h4>
+              <p><del style="color:silver"><small>€ 16,50  </small></del>   € 11,55</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Bracelets">
+            <div class="content">
+                <img src="sliki/bracelet5unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/bracelet5zoom.jpg';" onmouseout="this.src='sliki/bracelet5unzoom.jpg';">
+              <h5>Rose Bracelet with darkblue Zirconias</h4>
+              <p><del style="color:silver"><small>€ 17,50  </small></del>   € 12,25</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Bracelets">
+            <div class="content">
+              <img src="sliki/bracelet6unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/bracelet6zoom.jpg';" onmouseout="this.src='sliki/bracelet6unzoom.jpg';">
+              <h5>Bracelet with white Zirconia</h4>
+              <p><del style="color:silver"><small>€ 16,50  </small></del>   € 11,55</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Bracelets">
+            <div class="content">
+                <img src="sliki/bracelet7unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/bracelet7zoom.jpg';" onmouseout="this.src='sliki/bracelet7unzoom.jpg';">
+              <h5>Rose Bracelet with white Zirconia</h4>
+              <p><del style="color:silver"><small>€ 16,50  </small></del>   € 11,55</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Bracelets">
+            <div class="content">
+                <img src="sliki/bracelet8unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/bracelet8zoom.jpg';" onmouseout="this.src='sliki/bracelet8unzoom.jpg';">
+                <h5>Bracelet with white Zirconias</h4>
+              <p><del style="color:silver"><small>€ 14,70  </small></del>   € 10,29</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Bracelets">
+            <div class="content">
+                <img src="sliki/bracelet9unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/bracelet9zoom.jpg';" onmouseout="this.src='sliki/bracelet9unzoom.jpg';">
+                <h5>Rose Bracelet with white Zirconias</h4>
+              <p><del style="color:silver"><small>€ 17,30  </small></del>   € 12,11</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <!--column necklaces-->
+        
+          <div class="column Necklaces">
+            <div class="content">
+                <img src="sliki/necklaces1unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/necklaces1zoom.jpg';" onmouseout="this.src='sliki/necklaces1unzoom.jpg';">
+              <h5>Silver Necklace with blue Edelstein, 925er Silver</h4>
+                <p><del style="color:silver"><small>€ 26,50  </small></del>   € 18,55</p>
+                <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Necklaces">
+            <div class="content">
+                <img src="sliki/necklaces2unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/necklaces2zoom.jpg';" onmouseout="this.src='sliki/necklaces2unzoom.jpg';">
+              <h5>Silver Necklace with white Zirconias, 925er Silver</h4>
+              <p><del style="color:silver"><small>€ 24,50  </small></del>   € 17,15</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Necklaces">
+            <div class="content">
+                <img src="sliki/necklaces4unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/necklaces4zoom.jpg';" onmouseout="this.src='sliki/necklaces4unzoom.jpg';">
+              <h5>Rose Necklace with white Zirconias, 925er Silver</h4>
+              <p><del style="color:silver"><small>€ 24,50  </small></del>   € 17,15</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Necklaces">
+            <div class="content">
+                <img src="sliki/necklaces3unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/necklaces3zoom.jpg';" onmouseout="this.src='sliki/necklaces3unzoom.jpg';">
+              <h5>Silver Necklace with white Zirconias, 925er Silver</h4>
+              <p><del style="color:silver"><small>€ 25,70  </small></del>   € 17,99</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Necklaces">
+            <div class="content">
+                <img src="sliki/necklaces5unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/necklaces5zoom.jpg';" onmouseout="this.src='sliki/necklaces5unzoom.jpg';">
+              <h5>Silver Necklace with white Zirconias, 925er Silver</h4>
+              <p><del style="color:silver"><small>€ 24,50  </small></del>   € 17,15</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Necklaces">
+            <div class="content">
+                <img src="sliki/necklaces6unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/necklaces6zoom.jpg';" onmouseout="this.src='sliki/necklaces6unzoom.jpg';">
+              <h5>Rose Necklace with white Zirconias, 925er Silver</h4>
+              <p><del style="color:silver"><small>€ 28,50  </small></del>   € 19,95</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Necklaces">
+            <div class="content">
+                <img src="sliki/necklaces7unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/necklaces7zoom.jpg';" onmouseout="this.src='sliki/necklaces7unzoom.jpg';">
+              <h5>Rose Necklace with white Zirconias, 925er Silver</h4>
+              <p><del style="color:silver"><small>€ 27,50  </small></del>   € 19,95</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Necklaces">
+            <div class="content">
+                <img src="sliki/necklaces8unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/necklaces8zoom.jpg';" onmouseout="this.src='sliki/necklaces8unzoom.jpg';">
+              <h5>Rose Necklace with white Zirconias, 925er Silver</h4>
+              <p><del style="color:silver"><small>€ 30,50  </small></del>   € 20,95</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Necklaces">
+            <div class="content">
+                <img src="sliki/necklaces9unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/necklaces9zoom.jpg';" onmouseout="this.src='sliki/necklaces9unzoom.jpg';">
+              <h5>Silver Necklace with white Zirconias and Pearls, 925er Silver</h4>
+              <p><del style="color:silver"><small>€ 21,50  </small></del>   € 15,95</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+
+      <!--Rings-->
+          <div class="column Rings">
+            <div class="content">
+                <img src="sliki/rings1unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/rings1zoom.jpg';" onmouseout="this.src='sliki/rings1unzoom.jpg';">
+              <h5>Flowers Rose Ring with pink, white Zirconias</h4>
+              <p><del style="color:silver"><small>€ 27,50  </small></del>   € 19,95</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Rings">
+            <div class="content">
+                <img src="sliki/rings2unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/rings2zoom.jpg';" onmouseout="this.src='sliki/rings2unzoom.jpg';">
+              <h5>Rose Ring with white Zirconias</h4>
+              <p><del style="color:silver"><small>€ 12,50  </small></del>   € 8,75</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Rings">
+            <div class="content">
+                <img src="sliki/rings3unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/rings3zoom.jpg';" onmouseout="this.src='sliki/rings3unzoom.jpg';">
+              <h5>Ring with white Zirconias</h4>
+              <p><del style="color:silver"><small>€ 11,50  </small></del>   € 8,05</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Rings">
+            <div class="content">
+                <img src="sliki/rings4unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/rings4zoom.jpg';" onmouseout="this.src='sliki/rings4unzoom.jpg';">
+              <h5>Flowers Ring with green Zirconias</h4>
+              <p><del style="color:silver"><small>€ 14,50  </small></del>   € 10,15</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Rings">
+            <div class="content">
+                <img src="sliki/rings5unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/rings5zoom.jpg';" onmouseout="this.src='sliki/rings5unzoom.jpg';">
+              <h5>Butterflies Ring with white Zirconias</h4>
+              <p><del style="color:silver"><small>€ 14,50  </small></del>   € 10,15</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Rings">
+            <div class="content">
+                <img src="sliki/rings6unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/rings6zoom.jpg';" onmouseout="this.src='sliki/rings6unzoom.jpg';">
+              <h5>Butterflies yellow Ring with white Zirconias</h4>
+              <p><del style="color:silver"><small>€ 21,50  </small></del>   € 15,05</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Rings">
+            <div class="content">
+                <img src="sliki/rings7unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/rings7zoom.jpg';" onmouseout="this.src='sliki/rings7unzoom.jpg';">
+              <h5>Star Ring with white Zirconias</h4>
+              <p><del style="color:silver"><small>€ 12,50  </small></del>   € 8,75</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Rings">
+            <div class="content">
+                <img src="sliki/rings8unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/rings8zoom.jpg';" onmouseout="this.src='sliki/rings8unzoom.jpg';">
+              <h5>Rose Ring with white Zirconias</h4>
+              <p><del style="color:silver"><small>€ 13,50  </small></del>   € 9,45</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+            </div>
+          </div>
+          <div class="column Rings">
+            <div class="content">
+                <img src="sliki/rings9unzoom.jpg" alt="Bracelets" style="max-width:100%" onmouseover="this.src='sliki/rings9zoom.jpg';" onmouseout="this.src='sliki/rings9unzoom.jpg';">
+              <h5>Ring with white Zirconias</h4>
+              <p><del style="color:silver;"><small>€ 14,50  </small></del>   € 10,45</p>
+              <button class="ghost-button" style="max-width: 100%;"> SHOP </button>
+
+            </div>
+          </div>
+          
+        </div>
+        
+</div>
+<br>
+<br>
+<img src="sliki/slika5.png" id="poslednaslika"/>
+<br>
+<br>
+<br>
+<br>
+<div>
+  
+</div>
+
+</div>
+<footer id="footer" style="max-width: 100%;">
+  
+  <p style="color:white">_________________________________________________________________________________________________________________________________________________________________________________________________________________________________</p>
+  <p style="color:white">About us&nbsp&nbsp&nbsp&nbsp&nbspBlog&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPress&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspContact or visit us&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspGift cards&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDelivery+Returns&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspWork with us</p> 
+  <p style="color:white">_________________________________________________________________________________________________________________________________________________________________________________________________________________________________</p>
+  <p style="color:white;text-align:center">SIGN UP HERE</p>
+  <input type="text" value="Email address                            " style="color:#d0d0d0"><button type="button" style="background-color:#d0d0d0">></button>
+  <br>
+  <br>
+  <p style="color:silver;text-align:center">&copy2019 Yewelryholic, Keti Isajloska</p>
+</footer>
+</div>
+</div>
+</div>
+</body>
+</head>
+</html>
